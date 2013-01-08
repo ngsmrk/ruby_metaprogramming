@@ -26,15 +26,15 @@ end
 
 class Delegate
   def do_something
-    puts "Inner call"
+    "Inner call"
   end
   
   def do_something_with_params args
-    puts "Do something with params #{args}"
+    "Do something with params #{args}"
   end  
   
   def do_something_with_params *args
-    puts "Do something with splatted params #{args}"
+    "Do something with splatted params #{args}"
   end
   
   def do_something_with_block &block
@@ -43,17 +43,17 @@ class Delegate
   end  
 end
 
-lp = LoggingProxy.new(STDOUT, Delegate.new)
-lp.do_something
+class MethodMissingTest < Test::Unit::TestCase
 
-lp.do_something_with_params 1
+    def proxy
+      LoggingProxy.new(STDOUT, Delegate.new)
+    end
 
-lp.do_something_with_params(1, 2)
-
-lp.do_something_with_params({ :one => "uno", :two => "dos" })
-
-da_block = lambda { puts "testing da block"}
-lp.do_something_with_block(&da_block)
-
-stabby_lambda_block = -> { puts "testing stabby lambda" }
-lp.do_something_with_block(&stabby_lambda_block)
+    def test_method_missing_no_params
+      assert_equal "Inner call", proxy.do_something, "Wrong call"
+    end
+    
+    def test_method_missing_with_params
+      assert_equal "Do something with splatted params [1]", proxy.do_something_with_params(1), "Wrong call again"
+    end    
+end
