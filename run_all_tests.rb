@@ -5,3 +5,4 @@ require 'test/unit/assertions'
 
 require 'method_missing'
 require 'method_invocation'
+require 'delegator_test'
