@@ -20,5 +20,15 @@ class AddMethodsToInstanceTest < Test::Unit::TestCase
 		end
 
 		assert_equal "HELLO", MyClass.added_method
-	end	
+	end
+
+	def test_define_method_using_send
+		color_name = 'black'
+
+		MyClass.send(:define_method, 'color') do
+		  color_name
+		end
+
+		assert_equal color_name, MyClass.new.color
+	end
 end
