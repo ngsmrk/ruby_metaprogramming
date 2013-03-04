@@ -14,7 +14,7 @@ class NumberEqualityTest < Test::Unit::TestCase
 	def test_mixed_equal
 		assert_equal true,  1 ==   1.0, "Integer and Float should match using =="
 		assert_equal true,  1 ===  1.0, "Integer and Float should match using === because of type conversion"
-		assert_equal false,  1 ===  1.5, "Integer and Float should not match using === despite type conversion"		
+		assert_equal false, 1 ===  1.5, "Integer and Float should not match using === despite type conversion"		
 		assert_equal false, 1.eql?(1.0), "Integer and Float should not match using eql?"
 		assert_equal false, 1.equal?(1.0), "Integer and Float should not match using equal?"						
 	end	
