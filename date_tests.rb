@@ -13,7 +13,7 @@ class DateTest < Test::Unit::TestCase
 	def test_datetime_is_correct
 		# never use Date.current.to_time always use Date.current.to_time_in_current_zone - otherwise you lose the offset
 		correct_date_time = Date.current.to_time_in_current_zone
-		assert_equal "Hawaii", Date.current.to_time_in_current_zone.time_zone.name
+		assert_equal "Hawaii", correct_date_time.time_zone.name
 		assert_equal "HST", correct_date_time.zone
 
 		incorrect_date_time = Date.current.to_time
