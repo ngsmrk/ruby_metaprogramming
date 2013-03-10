@@ -3,6 +3,8 @@ $LOAD_PATH << File.dirname(__FILE__)
 require 'test/unit'
 require 'test/unit/assertions'
 
+require 'extensible'
+
 require 'method_missing'
 require 'method_invocation'
 require 'delegator_test'

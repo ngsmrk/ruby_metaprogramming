@@ -1,11 +1,6 @@
 class ClassEnhancementTest < Test::Unit::TestCase
 	class Bob
-		class << self
-			def enhance klass
-				puts "Enhancing #{self} with class #{klass}"
-				self.send(:include, klass)
-			end
-		end
+		extend Extensible
 	end
 
 	module Logger
