@@ -1,7 +1,6 @@
 # TODO
 
-## Modules
-	test included
+## Recursion with blocks
 
 ## Ruby 2.0
 
